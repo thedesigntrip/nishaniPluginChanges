@@ -1,0 +1,112 @@
+.egrid-placeholder-item {
+    background-color: #000;
+    -webkit-animation: placeholder-background-loading 1.5s infinite linear;
+    animation: placeholder-background-loading 1.5s infinite linear;
+}
+
+@-webkit-keyframes placeholder-background-loading {
+    0% {
+        opacity: .03
+    }
+
+    50% {
+        opacity: .07
+    }
+
+    to {
+        opacity: .03
+    }
+}
+
+@keyframes placeholder-background-loading {
+    0% {
+        opacity: .03
+    }
+
+    50% {
+        opacity: .07
+    }
+
+    to {
+        opacity: .03
+    }
+}
+
+/* Products List */
+ul.products.columns-2 li.product .egrid-placeholder-image {
+    height: 500px;
+    margin: 0 0 20px;
+    width: 100%;
+}
+
+ul.products.columns-3 li.product .egrid-placeholder-image {
+    height: 316px;
+    margin: 0 0 20px;
+    width: 100%;
+}
+
+ul.products.columns-4 li.product .egrid-placeholder-image {
+    height: 225px;
+    margin: 0 0 20px;
+    width: 100%;
+}
+
+ul.products.columns-5 li.product .egrid-placeholder-image {
+    height: 170px;
+    margin: 0 0 20px;
+    width: 100%;
+}
+
+ul.products.columns-6 li.product .egrid-placeholder-image {
+    height: 133px;
+    margin: 0 0 20px;
+    width: 100%;
+}
+
+ul.products li.product .egrid-placeholder-category {
+    height: 16px;
+    margin: 0 0 15px;
+    width: 55%;
+}
+
+ul.products li.product .egrid-placeholder-title {
+    height: 25px;
+    margin: 0 0 5px;
+    width: 95%;
+}
+
+ul.products li.product .egrid-placeholder-price {
+    height: 19px;
+    width: 40%;
+}
+
+/* End Products List */
+
+/* Product Category Filter */
+.egrid-products-categories-filter .egrid-placeholder-widgettitle {
+    height: 40px;
+    margin: 0 0 30px;
+    width: 100%;
+}
+
+.egrid-products-categories-filter .egrid-placeholder-items .egrid-placeholder-item {
+    height: 30px;
+    margin: 0 0 5px;
+    width: 80%;
+}
+
+/* End Product Category Filter */
+
+/* Product Price Filter */
+.egrid-products-price-filter .egrid-placeholder-widgettitle {
+    height: 40px;
+    margin: 0 0 30px;
+    width: 100%;
+}
+
+.egrid-products-price-filter .egrid-placeholder-items .egrid-placeholder-item {
+    height: 30px;
+    margin: 0 0 5px;
+    width: 80%;
+}
+/* End Product Price Filter */

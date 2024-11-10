@@ -1,0 +1,29 @@
+.egrid-products-wrapper {
+    position: relative;
+}
+
+.egrid-products-wrapper.loading:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 9;
+}
+
+.egrid-products-wrapper .lds-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 99;
+}
+
+.egrid-products-wrapper.loading .lds-ring {
+    display: block;
+}
+
+.woocommerce-loadmore {
+    text-align: center;
+}

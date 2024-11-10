@@ -1,0 +1,39 @@
+.egrid-modal-overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    background-color: rgba(27, 26, 26, 0.7);
+    z-index: 999;
+    transition: all 300ms linear 0ms;
+}
+.egrid-modal-overlay.open {
+    visibility: visible;
+    opacity: 1;
+}
+.egrid-modal {
+    width: 400px;
+    transition: all 300ms ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+    overflow: hidden;
+}
+.egrid-modal.open {
+    opacity: 1;
+    visibility: visible;
+    z-index: 99999;
+}
+.egrid-modal-header{
+    position: relative;
+}
+.egrid-modal-close{
+    cursor: pointer;
+}
