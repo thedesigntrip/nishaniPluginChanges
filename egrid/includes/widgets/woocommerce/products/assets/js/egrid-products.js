@@ -15,6 +15,11 @@
         });
 
         $scope.on('load', function() {
+            if ($scope.data('loading')) {
+                return;
+            }
+            $scope.data('loading', true);
+            
             var filters = $scope.data('filters') || {};
             var orderby = $scope.data('orderby') || '';
             var order = $scope.data('order') || '';
@@ -24,9 +29,6 @@
             if (page == 1) {
                 loadmore = false;
             }
-
-            // Store current scroll position
-            var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
 
             $.ajax({
                 url: egrid_products.ajax_url,
@@ -45,6 +47,10 @@
                     loadmore: loadmore,
                     filters: JSON.stringify(filters),
                     settings: JSON.stringify(getSettings()),
+                },
+                timeout: 30000,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 }
             }).done(function(res) {
                 if (res.success) {
@@ -58,12 +64,7 @@
                         $newScope.data('order', order);
                         $newScope.data('columns', columns);
                         $scope.find('.egrid-products-wrapper').replaceWith($newScope.find('.egrid-products-wrapper'));
-                        
-                        // Restore scroll position instead of animating to top
-                        // window.scrollTo({
-                        //     top: scrollPosition,
-                        //     behavior: 'instant'
-                        // });
+                        // $('html,body').animate({ scrollTop: $newScope.offset().top - 100 }, 750);
                     }
                     if (typeof wc_add_to_cart_variation_params !== 'undefined') {
                         $('.variations_form').each(function() {
@@ -74,12 +75,21 @@
                 } else {
                     console.log(res.message);
                 }
-            }).fail(function(res) {
-                console.log(res);
+            }).fail(function(jqXHR, textStatus, errorThrown) {
+                console.error('Request failed:', {
+                    status: jqXHR.status,
+                    statusText: jqXHR.statusText,
+                    responseText: jqXHR.responseText,
+                    textStatus: textStatus,
+                    errorThrown: errorThrown
+                });
             }).always(function() {
                 $scope.trigger('close-loader');
+                $scope.data('loading', false);
             });
         });
+
+        // console.log(getSettings('layout'));
 
         function getSettings(setting) {
             let settings = {};
