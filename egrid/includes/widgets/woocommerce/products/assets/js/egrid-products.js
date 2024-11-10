@@ -60,10 +60,10 @@
                         $scope.find('.egrid-products-wrapper').replaceWith($newScope.find('.egrid-products-wrapper'));
                         
                         // Restore scroll position instead of animating to top
-                        window.scrollTo({
-                            top: scrollPosition,
-                            behavior: 'instant'
-                        });
+                        // window.scrollTo({
+                        //     top: scrollPosition,
+                        //     behavior: 'instant'
+                        // });
                     }
                     if (typeof wc_add_to_cart_variation_params !== 'undefined') {
                         $('.variations_form').each(function() {
